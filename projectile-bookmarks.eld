@@ -1,1 +1,1 @@
-("~/.emacs.d/" "/data/codes/renderdoc/")
+("~/.emacs.d/")
