@@ -35,9 +35,7 @@
 (use-package dap-mode
   :hook ((lsp-mode . dap-mode)
          (dap-mode . dap-ui-mode)
-	 (dap-mode . dap-tooltip-mode)
-	 (c-mode . (lambda () (require 'dap-c)))
-	 (c++-mode . (lambda () (require 'dap-c++)))
+		 (dap-mode . dap-tooltip-mode)
          (python-mode . (lambda() (require 'dap-python)))
          (go-mode . (lambda() (require 'dap-go)))
          (java-mode . (lambda() (require 'dap-java)))))
