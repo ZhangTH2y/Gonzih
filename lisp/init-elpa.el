@@ -43,6 +43,8 @@
 (use-package gnu-elpa-keyring-update)
 (use-package diminish)
 (use-package delight)
+(use-package treemacs)
+
 
 (provide 'init-elpa)
 

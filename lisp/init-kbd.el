@@ -56,6 +56,9 @@
 (window-numbering-mode 1)
 
 
+;; find file in reposytory
+(global-set-key (kbd "C-x f") 'find-file-in-repository)
+
 (provide 'init-kbd)
 
 ;; Local Variables:

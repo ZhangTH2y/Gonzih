@@ -751,12 +751,12 @@ blocking emacs."
   (cond ((and (eq force 'interactive) (ggtags-project-oversize-p))
          (ggtags-with-current-project
            (with-display-buffer-no-window
-             (with-current-buffer (compilation-start "global -u")
-               ;; A hack to fool compilation mode to display `global
-               ;; -u finished' on finish.
-               (setq mode-name "global -u")
-               (add-hook 'compilation-finish-functions
-                         #'ggtags-update-tags-finish nil t)))))
+            (with-current-buffer (compilation-start "global -u")
+              ;; A hack to fool compilation mode to display `global
+              ;; -u finished' on finish.
+              (setq mode-name "global -u")
+              (add-hook 'compilation-finish-functions
+                        #'ggtags-update-tags-finish nil t)))))
         ((or force (and (ggtags-find-project)
                         (not (ggtags-project-oversize-p))
                         (ggtags-project-dirty-p (ggtags-find-project))))
@@ -823,16 +823,16 @@ blocking emacs."
          (setq ggtags-completion-cache
                (cons cache-key
                      (ignore-errors-unless-debug
-                       ;; May throw global: only name char is allowed
-                       ;; with -c option.
-                       (ggtags-with-current-project
-                         (split-string
-                          (apply #'ggtags-process-string
-                                 "global"
-                                 (append (and completion-ignore-case '("--ignore-case"))
-                                         ;; Note -c alone returns only definitions
-                                         (list (concat "-c" ggtags-completion-flag) prefix)))
-                          "\n" t)))))))
+                      ;; May throw global: only name char is allowed
+                      ;; with -c option.
+                      (ggtags-with-current-project
+                        (split-string
+                         (apply #'ggtags-process-string
+                                "global"
+                                (append (and completion-ignore-case '("--ignore-case"))
+                                        ;; Note -c alone returns only definitions
+                                        (list (concat "-c" ggtags-completion-flag) prefix)))
+                         "\n" t)))))))
      (cdr ggtags-completion-cache))))
 
 (defun ggtags-completion-at-point ()
@@ -929,7 +929,7 @@ blocking emacs."
     (ggtags-update-tags)
     (ggtags-with-current-project
       (with-current-buffer (with-display-buffer-no-window
-                             (compilation-start command 'ggtags-global-mode))
+                            (compilation-start command 'ggtags-global-mode))
         (setq-local ggtags-process-environment env)
         (setq ggtags-global-last-buffer (current-buffer))))))
 
@@ -1013,19 +1013,19 @@ definition tags."
               (ggtags-get-libpath))
     ((and libs (guard libs))
      (cl-labels ((cont (buf how)
-                   (pcase ggtags-global-exit-info
-                     (`(0 0 ,_)
-                      (with-temp-buffer
-                        (setq default-directory
-                              (file-name-as-directory (pop libs)))
-                        (and libs (setq ggtags-global-continuation #'cont))
-                        (if (ggtags-find-project)
-                            (ggtags-find-tag type (shell-quote-argument name))
-                          (cont buf how))))
-                     (_ (ggtags-global-handle-exit buf how)))))
+					   (pcase ggtags-global-exit-info
+						 (`(0 0 ,_)
+						  (with-temp-buffer
+							(setq default-directory
+								  (file-name-as-directory (pop libs)))
+							(and libs (setq ggtags-global-continuation #'cont))
+							(if (ggtags-find-project)
+								(ggtags-find-tag type (shell-quote-argument name))
+							  (cont buf how))))
+						 (_ (ggtags-global-handle-exit buf how)))))
        (setq ggtags-global-continuation #'cont)))))
 
-(defun ggtags-find-reference (name)
+(defun ggtags-find-referenc(name)
   (interactive (list (ggtags-read-tag 'reference current-prefix-arg)))
   (ggtags-setup-libpath-search 'reference name)
   (ggtags-find-tag 'reference "--" (shell-quote-argument name)))
@@ -1269,24 +1269,24 @@ Global and Emacs."
     (erase-buffer)
     (ggtags-view-search-history-mode)
     (cl-labels ((prop (s)
-                  (propertize s 'face 'minibuffer-prompt))
+					  (propertize s 'face 'minibuffer-prompt))
                 (prop-tag (cmd)
-                  (with-temp-buffer
-                    (insert cmd)
-                    (forward-sexp -1)
-                    (if (eobp)
-                        cmd
-                      (put-text-property (point) (point-max)
-                                         'face font-lock-constant-face)
-                      (buffer-string))))
+						  (with-temp-buffer
+							(insert cmd)
+							(forward-sexp -1)
+							(if (eobp)
+								cmd
+							  (put-text-property (point) (point-max)
+												 'face font-lock-constant-face)
+							  (buffer-string))))
                 (pp (data)
-                  (pcase data
-                    (`(,_id ,cmd ,dir ,_env ,line ,text)
-                     (insert (prop " cmd: ") (prop-tag cmd) "\n"
-                             (prop " dir: ") dir "\n"
-                             (prop "line: ") (number-to-string line) "\n"
-                             (prop "text: ") text "\n"
-                             (propertize (make-string 32 ?-) 'face 'shadow))))))
+					(pcase data
+                      (`(,_id ,cmd ,dir ,_env ,line ,text)
+                       (insert (prop " cmd: ") (prop-tag cmd) "\n"
+                               (prop " dir: ") dir "\n"
+                               (prop "line: ") (number-to-string line) "\n"
+                               (prop "text: ") text "\n"
+                               (propertize (make-string 32 ?-) 'face 'shadow))))))
       (setq ggtags-global-search-ewoc
             (ewoc-create #'pp "Global search history keys:  n:next  p:prev  r:register  RET:choose\n")))
     (dolist (data ggtags-global-search-history)
@@ -1300,10 +1300,10 @@ Global and Emacs."
 Use \\[jump-to-register] to restore the search session."
   (interactive (list (register-read-with-preview "Save search to register: ")))
   (cl-labels ((prn (data)
-                (pcase data
-                  (`(,command ,root ,_env ,line ,_)
-                   (princ (format "a ggtags search session `%s' in directory `%s' at line %d."
-                                  command root line))))))
+                   (pcase data
+					 (`(,command ,root ,_env ,line ,_)
+					  (princ (format "a ggtags search session `%s' in directory `%s' at line %d."
+									 command root line))))))
     (set-register r (registerv-make
                      (if ggtags-global-search-ewoc
                          (cdr (ewoc-data (ewoc-locate ggtags-global-search-ewoc)))
@@ -1611,12 +1611,12 @@ commands `next-error' and `previous-error'.
     (setq-local ggtags-auto-jump-to-match-target nil)
     (ggtags-delay-finish-functions
       (with-display-buffer-no-window
-        (condition-case nil
-            (let ((compilation-auto-jump-to-first-error t))
-              (compilation-auto-jump (current-buffer) (point)))
-          (error (message "\
+       (condition-case nil
+           (let ((compilation-auto-jump-to-first-error t))
+             (compilation-auto-jump (current-buffer) (point)))
+         (error (message "\
 ggtags: history match invalid, jump to first match instead")
-                 (first-error)))))
+                (first-error)))))
     ;; `compilation-filter' restores point and as a result commands
     ;; dependent on point such as `ggtags-navigation-next-file' and
     ;; `ggtags-navigation-previous-file' fail to work.
