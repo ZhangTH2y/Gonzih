@@ -49,6 +49,12 @@
   :bind (("M-<up>" . drag-stuff-up)
          ("M-<down>" . drag-stuff-down)))
 
+;; win switch
+(setq window-numbering-assign-func
+      (lambda () (when (equal (buffer-name) "*Calculator*") 9)))
+(require 'window-numbering)
+(window-numbering-mode 1)
+
 
 (provide 'init-kbd)
 

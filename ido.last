@@ -1,0 +1,57 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/root/.emacs.d/" . "lisp/")
+ ("/root/" . ".emacs.d/")
+ ("/data/codes/renderdoc/qrenderdoc/" . "Code/")
+ ("/data/codes/renderdoc/" . "qrenderdoc/")
+ ("/data/codes/" . "renderdoc/")
+ ("/data/" . "codes/")
+ ("/" . "root/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/data/codes/renderdoc/qrenderdoc/Code/"
+ "/root/.emacs.d/lisp/"
+ "/root/.emacs.d/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "QRDUtils.cpp"
+ "MiniQtHelper.cpp"
+ "BufferFormatter.cpp"
+ "AppleUtils.mm"
+ "init-kbd.el"
+ "custom.el"
+ "README.en-US.md"
+ "early-init.el"
+ "README.md"
+ ".gitignore"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/root/.emacs.d/" (25474 33938 750141 297000) "elpa/" "../" ".git/" "auto-save-list/" "snippets/" "projectile-bookmarks.eld" "README.md" "early-init.el" "README.en-US.md" "recentf" ".dap-breakpoints" "./" "lisp/" ".gitignore" ".lsp-session-v1" "init.el" "custom.el" "ido.last" "install_requirements.sh" "transient/")
+
+ ("/data/codes/renderdoc/qrenderdoc/Code/" (25474 33622 658061 387000) "../" "qprocessinfo.h" "qprocessinfo.cpp" "pyrenderdoc/" "ReplayManager.h" "RGPInterop.h" "MiniQtHelper.cpp" "QRDUtils.cpp" "precompiled.h" "./" "ScintillaSyntax.h" "precompiled.cpp" "AppleUtils.mm" "ScintillaSyntax.cpp" "RGPInterop.cpp" "Resources.cpp" "CaptureContext.cpp" "Resources.h" "MiniQtHelper.h" ".#MiniQtHelper.cpp" "ReplayManager.cpp" "Interface/" "CaptureContext.h" "qrenderdoc.cpp" "BufferFormatter.cpp" "QRDUtils.h")
+
+ ("/root/.emacs.d/lisp/" (25474 33536 244943 631000) "init-fn.el" "../" "init-lsp.el" "./" "init-lsp-language.el" "init-kbd.el" "init-elpa.el" "init-startup.el" "init-builtin.el" "init-misc.el" "init-package.el" "init-program.el" "init-ui.el")
+
+ ("/root/" (25474 32610 669018 198000) "../" ".ccache/" ".emacs-backups/" ".bin/" ".config/" ".npm/" "./" ".renderdoc/" "snap/" ".emacs~" ".emacs.d/" ".wget-hsts" "window-numbering.el/" ".emacs.d.tar.bz2" ".profile" ".launchpadlib/" ".gitconfig" ".cache/" ".bashrc" ".vscode-server/" ".local/" ".git-completion.bash" ".ssh/" ".bash_history" ".viminfo" ".lesshst")
+
+ ("/root/.emacs.d/auto-save-list/" (25474 32176 855435 435000) "../" "./" ".saves-21774-vm-ubuntu22~")
+
+ ("/data/codes/renderdoc/qrenderdoc/" (25474 22297 371226 443000) "../" "sort_qt_ui.py" "va_stdafx.h" "qrenderdoc.pro" "renderdocui_stub.vcxproj.filters" "README.md" "CMakeLists.txt" "./" "qrenderdoc_local.vcxproj" "Styles/" "python36.natvis" "Widgets/" "Resources/" "renderdocui_stub.vcxproj" "share/" "Windows/" "renderdocui_stub.cpp" "3rdparty/" "Code/" "qrenderdoc_local.vcxproj.filters")
+
+ ("/data/" (25470 18852 546059 236000) "../" "./" "codes/" "kernel/")
+
+ ("/data/codes/" (25473 50615 247627 512000) "../" "./" "mesa-22.3.0-rc3/" "mesa-22.3.0-rc3.tar.xz" "renderdoc/")
+
+ ("/data/codes/renderdoc/" (25474 23513 250704 937000) "GRTAGS" "../" "renderdoc.sln" ".git/" "LICENSE.md" "README.md" "docs/" "CMakeLists.txt" "build/" "./" ".vscode/" ".gitignore" "GTAGS" "renderdoccmd/" "GPATH" ".gitattributes" "util/" ".github/" ".clang-format" "renderdoc/" ".cache/" "xxx" "renderdocshim/" "qrenderdoc/")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
